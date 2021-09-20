@@ -1,0 +1,97 @@
+@baseUrl = http://localhost:8080/auths
+@baseUserUrl = http://localhost:8080/users
+
+
+### Create the default user : POST users/init 
+### User = {id=UUID, pseudo="jamesBond", prenom="James", nom="Bond", email="jamesbond@gmail.com", password="007"}
+POST {{baseUserUrl}}/init
+Content-Type: application/json
+
+
+### Check if pseudo already exists
+POST {{baseUserUrl}}/pseudoAvailible
+Content-Type: application/json
+
+{
+    "pseudo":"test"
+}
+
+### Check if email already exists
+POST {{baseUserUrl}}/emailAvailible
+Content-Type: application/json
+
+{
+    "email":"jamesbond@gmail.com"
+}
+
+### UserByUsername
+GET {{baseUserUrl}}/bert
+Content-Type: application/json
+
+### Login with default user credentials : POST auths/login
+### Get a request variable : https://github.com/Huachao/vscode-restclient
+### theo : mdpuser.3
+# @name loggedUser
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+    "login":"theo",
+    "password":"mdpuser.3",
+    "remember":"true"
+}
+
+@token = {{loggedUser.response.body.token}}
+
+### Verify if Admin token filter works
+GET {{baseUserUrl}}
+Authorization: {{token}}
+
+### Login with incorrect password : POST auths/login
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+    "login":"jamesBond",
+    "password":"mauvaisMotDePasse"
+}
+
+### Login with incorrect pseudo : POST auths/login
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+    "login":"chalieChaplin",
+    "password":"007"
+}
+
+### Login with empty fields : POST auths/login
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+    
+}
+
+### Register john : POST auths/register
+### Get a request variable : https://github.com/Huachao/vscode-restclient
+# @name loggedUser
+POST {{baseUrl}}/register
+Content-Type: application/json
+
+{
+    "login":"john",
+    "password":"123"
+}
+
+### Login with John credentials : POST auths/login
+# @name loggedUser
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+    "login":"john",
+    "password":"123"
+}
+
+

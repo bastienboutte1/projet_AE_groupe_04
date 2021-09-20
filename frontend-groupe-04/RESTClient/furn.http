@@ -1,0 +1,17 @@
+@baseUrl = http://localhost:8080/auths
+@baseFurnitureUrl = http://localhost:8080/furnitures
+
+
+###Get All the Furniture
+GET {{baseFurnitureUrl}}/showAllFur
+Content-Type: application/json
+
+
+###Update the condition of a furniture
+POST {{baseFurnitureUrl}}/UpdateCondition
+Content-Type: application/json
+
+{
+    "idFurniture":3,
+    "condition": "restaure"
+}

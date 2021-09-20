@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* modern solution with flex to provide a sticky footer with no overlap with page div*/
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.main {
+  /* modern solution with flex to provide a sticky footer with no overlap with page div*/
+  flex: 1;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+.title, .link{
+  width: 10rem;
+  
+  word-wrap: break-word;
+
+}
+
+.duration, .budget{
+  width: 10rem;
+}
+
+.save, .delete{
+  width : 7rem;
+}
+
+td a{
+  display:block;
+}
+
+td button{
+  
+  width:5rem !important;  
+}
+
+.table{
+  table-layout: fixed;
+}
+
+.furnitures-photo-border {
+  border-color: black;
+  border-style: solid;
+  border-left-width: 3px;
+  border-right-width: 1px;
+  border-top-width: 3px;
+  border-bottom-width: 3px;
+  border-bottom-left-radius: 1em;
+  border-top-left-radius: 1em;
+}
+
+.furnitures-description-border {
+  border-color: black;
+  border-style: solid;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 3px;
+  border-bottom-width: 3px;
+}
+
+.furnitures-price-border {
+  border-color: black;
+  border-style: solid;
+  border-left-width: 1px;
+  border-right-width: 3px;
+  border-top-width: 3px;
+  border-bottom-width: 3px;
+  border-bottom-right-radius: 1em;
+  border-top-right-radius: 1em;
+}
+
+.logo_satcho {
+  width: 4em;
+}
+
+#logo_footer {
+  width: 3em;
+}
+
+.carousel-inner img{
+  width: 1100;
+  height: 500;
+}
+
+.modal-header .close {
+  font-size: 2.5em;
+}
+.modal-header .close-btn {
+  font-size: 10em;
+}
+
+.modal-content {
+  background-color: rgba(0,0,0,0.5);
+}
+
+.fix {
+  position: absolute;
+  bottom: 0px;
+}

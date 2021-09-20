@@ -1,0 +1,25 @@
+@baseURI = http://localhost:8080/photos
+
+### Get all photos
+# env 8000 ms.
+GET {{baseURI}}
+Content-Type: application/json
+
+### Get all photos for unique furniture
+# env 150 - 200 ms.
+GET {{baseURI}}/4
+Content-Type: application/json
+
+### Create a new photo
+POST {{baseURI}}
+Content-Type: application/json
+
+{
+    "id_furniture" : 4,
+    "base64_value" : "UneStringEnBase64",
+    "prefered" : false,
+    "visible" : true
+}
+
+### Delete a photo with his id
+DELETE {{baseURI}}/2
